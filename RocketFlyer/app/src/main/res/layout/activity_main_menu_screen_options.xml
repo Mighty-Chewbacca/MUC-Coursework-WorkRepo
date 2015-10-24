@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <TextView
+        android:text="@string/gameName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="50dp"
+        android:id="@+id/tvGameName"
+        android:layout_marginTop="34dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/soundText"
+        android:id="@+id/tvSoundToggle"
+        android:layout_marginTop="39dp"
+        android:textSize="36dp"
+        android:layout_below="@+id/tvGameName"
+        android:layout_alignLeft="@+id/tvGameName"
+        android:layout_alignStart="@+id/tvGameName" />
+
+    <ToggleButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New ToggleButton"
+        android:id="@+id/tbSoundToggle"
+        android:layout_alignTop="@+id/tvSoundToggle"
+        android:layout_toRightOf="@+id/tvSoundToggle"
+        android:layout_marginLeft="77dp"
+        android:layout_marginStart="77dp"
+        android:layout_alignRight="@+id/tvGameName"
+        android:layout_alignEnd="@+id/tvGameName"
+        android:checked="true" />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/backText"
+        android:id="@+id/btnReturn"
+        android:layout_marginBottom="39dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+</RelativeLayout>
