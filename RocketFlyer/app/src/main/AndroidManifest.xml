@@ -21,6 +21,11 @@
             android:name=".MainMenu_ScreenHelp"
             android:label="Help Screen" >
         </activity>
+
+        <activity
+            android:name=".MainMenu_ScreenOptions"
+            android:label="Options Screen" >
+        </activity>
     </application>
 
 </manifest>

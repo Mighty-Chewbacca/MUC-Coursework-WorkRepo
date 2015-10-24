@@ -10,23 +10,43 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ToggleButton;
 
-public class MainMenu_ScreenHelp extends AppCompatActivity implements View.OnClickListener
+public class MainMenu_ScreenOptions extends AppCompatActivity implements View.OnClickListener
 {
     Button btnReturn;
+    ToggleButton tbSoundToggle;
     FragmentManager fmAboutDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu_screen_help);
+        setContentView(R.layout.activity_main_menu_screen_options);
 
         fmAboutDialog = this.getFragmentManager();
 
         btnReturn = (Button) findViewById(R.id.btnReturn);
         btnReturn.setOnClickListener(this);
+
+        tbSoundToggle = (ToggleButton) findViewById(R.id.tbSoundToggle);
+        tbSoundToggle.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+                if (isChecked)
+                {
+                    // The toggle is enabled so allow sounds
+                    Log.e("Debug", "Sound toggled on");
+                }
+                else
+                {
+                    // The toggle is disabled so mute the sound
+                    Log.e("Debug", "Sound toggled off");
+                }
+            }
+        });
     }
 
     @Override
@@ -43,12 +63,12 @@ public class MainMenu_ScreenHelp extends AppCompatActivity implements View.OnCli
         switch (item.getItemId())
         {
             case R.id.mQuit:
-                Log.e("Debug", "Quit pressed in top menu on help screen");
+                Log.e("Debug", "quit pressed in top menu on options screen");
                 finish();
                 return true;
 
             case R.id.mAbout:
-                Log.e("Debug", "About pressed in top menu on help screen");
+                Log.e("Debug", "about button pressed in top menu on options screen");
                 DialogFragment mcAboutDlg = new AboutDialog();
                 mcAboutDlg.show(fmAboutDialog, "mc_About_Dlg");
                 return true;
@@ -64,7 +84,7 @@ public class MainMenu_ScreenHelp extends AppCompatActivity implements View.OnCli
         {
             case R.id.btnReturn:
                 //return to the main menu
-                Log.e("Debug", "Return pressed in Help Menu");
+                Log.e("Debug", "Return pressed in Options Menu");
                 setResult(Activity.RESULT_OK);
                 finish();
                 break;
